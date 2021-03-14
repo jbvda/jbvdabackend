@@ -1,0 +1,51 @@
+<mvc:View controllerName="com.bicheiros.jogoDoBicho.controller.bilhete" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <App id="bilhete">
+        <pages>
+            <Page id="page" objectBindings="{/bilheteselecionado}">
+                <customHeader>
+                    <Bar id="header">
+                        <contentLeft>
+                            <Button id="navBack" type="Back" press="onNavBack"/>
+                        </contentLeft>
+                        <contentMiddle>
+                            <Title id="ttlPage" text="Bilhete"/>
+                        </contentMiddle>
+                        <contentRight>
+                            <Button id="btnFechar" icon="sap-icon://decline" type="Reject" press="onExitPress"/>
+                        </contentRight>
+                    </Bar>
+                </customHeader>
+                <content>
+                    <ObjectHeader id="objectHeader" title="{id} - {path: 'createdAt', formatter: '.formatter.dateTime'}" condensed="true" number="{path: 'apostas', formatter: '.formatter.valorTotalBilhete'}" numberUnit="R$">
+                        <attributes>
+                            <ObjectAttribute id="atrbUsuario" text="Usuário: {usuario/login}"/>
+                        </attributes>
+                    </ObjectHeader>
+                    <List id="listApostas" headerText="Apostas" items="{apostas}" sticky="HeaderToolbar">
+                        <items>
+                            <ObjectListItem id="aposta" intro="" title="Id: {id}" number="{path: 'valor', formatter: '.formatter.dinheiro'}" numberUnit="R$">
+                                <attributes>
+                                    <ObjectAttribute id="atrbJogo" text="Tipo de Jogo: {multiplicador/jogo/nome}"/>
+                                    <ObjectAttribute id="atrbAnimal" text="Animal: {animal/nome}" visible="{= ${multiplicador/id_jogo} === 1 ? true : false}"/>
+                                    <ObjectAttribute id="atrbDezena" text="Dezena: {path: 'palpite', formatter: '.formatter.dezena'}" visible="{=${multiplicador/id_jogo} === 2 ? true : false}"/>
+                                    <ObjectAttribute id="atrbCentena" text="Centena: {path: 'palpite', formatter: '.formatter.centena'}" visible="{=${multiplicador/id_jogo} === 3 ? true : false}"/>
+                                    <ObjectAttribute id="atrbMultilicador" text="Multiplicador: {multiplicador/valor}x. Acertos: {multiplicador/numero_acertos}"/>
+                                </attributes>
+                            </ObjectListItem>
+                        </items>
+                    </List>
+
+                </content>
+                <footer>
+                    <Toolbar id="toolbarFooter">
+                        <ToolbarSpacer id="spacer"/>
+                        <Button id="btnImprimir" icon="sap-icon://print" type="Emphasized" press="onImprimirPress"/>
+                    </Toolbar>
+                </footer>
+
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

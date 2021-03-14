@@ -1,0 +1,51 @@
+<mvc:View controllerName="com.bicheiros.jogoDoBicho.controller.cadastrarSorteio" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:form="sap.ui.layout.form">
+  <App id="cadastrarSorteio">
+    <pages>
+      <Page id="page">
+        <customHeader>
+          <Bar id="header">
+            <contentLeft>
+              <Button id="navBack" type="Back" press="onNavBack"/>
+            </contentLeft>
+            <contentMiddle>
+              <Title id="ttlPage" text="Cadastrar Sorteio"/>
+            </contentMiddle>
+            <contentRight>
+              <Button id="btnFechar" icon="sap-icon://decline" type="Reject" press="onExitPress"/>
+            </contentRight>
+          </Bar>
+        </customHeader>
+        <content>
+          <form:SimpleForm id="sorteioForm" editable="true" layout="ResponsiveGridLayout" title="Sorteio">
+            <Label id="lblDate" text="Data da Apuração" />
+            <DatePicker id="iptDate" />
+            <Label id="lblNumeroSorteio" text="Número do Sorteio" />
+            <Input id="iptNumeroSorteio" type="Number" />
+            <Label id="lblDezena1" text="Dezena 1" />
+            <Input id="iptDezena1" type="Number" />
+            <Label id="lblDezena2" text="Dezena 2" />
+            <Input id="iptDezena2" type="Number" />
+            <Label id="lblDezena3" text="Dezena 3" />
+            <Input id="iptDezena3" type="Number" />
+            <Label id="lblDezena4" text="Dezena 4" />
+            <Input id="iptDezena4" type="Number" />
+            <Label id="lblDezena5" text="Dezena 5" />
+            <Input id="iptDezena5" type="Number" />
+            <Label id="lblVazia"/>
+            <Button id="btnAddSorteio" icon="sap-icon://add" type="Accept" press="onAddButtonPress"/>
+          </form:SimpleForm>
+        </content>
+        <footer>
+          <Bar id="bar" design="Auto">
+            <contentRight>
+              <Button id="btnCalcularResultado" icon="sap-icon://horizontal-combination-chart" type="Emphasized" press="onCalcularButtonPress"/>
+            </contentRight>
+          </Bar>
+        </footer>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

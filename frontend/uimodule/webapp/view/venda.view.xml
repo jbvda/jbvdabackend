@@ -1,0 +1,69 @@
+<mvc:View controllerName="com.bicheiros.jogoDoBicho.controller.venda" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:form="sap.ui.layout.form"
+  xmlns:core="sap.ui.core">
+  <App id="venda">
+    <pages>
+      <Page id="page">
+        <customHeader>
+          <Bar id="header">
+            <contentLeft>
+              <Button id="navBack" type="Back" press="onCancelPress"/>
+            </contentLeft>
+            <contentMiddle>
+              <Title id="ttlPage" text="Nova Venda"/>
+            </contentMiddle>
+            <contentRight>
+              <Button id="btnFechar" icon="sap-icon://decline" type="Reject" press="onExitPress"/>
+            </contentRight>
+          </Bar>
+        </customHeader>
+        <content>
+          <form:SimpleForm id="apostaForm" editable="true" layout="ResponsiveGridLayout" title="Aposta">
+            <Label id="lblJogos" text="Tipo de Jogo"/>
+            <ComboBox id="comboBoxJogos" items="{/jogos}" selectionChange="onJogoSelectionChange">
+              <items>
+                <core:ListItem id="jogo" key="{id}" text="{nome}"></core:ListItem>
+              </items>
+            </ComboBox>
+            <Label id="lblMultiplicadores" text="Subtipo de Jogo"/>
+            <ComboBox id="comboBoxMultiplicadores" items="{/multiplicadores}" editable="false">
+              <items>
+                <core:ListItem id="multiplicador" key="{id}" text="Multiplicador: {valor}x. Acertos: {numero_acertos}"></core:ListItem>
+              </items>
+            </ComboBox>
+            <Label id="lblAnimais" text="Animal" visible="false"/>
+            <ComboBox id="comboBoxAnimais" items="{/animais}" selectedKey="99" visible="false">
+              <items>
+                <core:ListItem id="animal" key="{id}" text="{nome}"></core:ListItem>
+              </items>
+            </ComboBox>
+            <Label id="lblPalpite" text="Palpite" visible="false"/>
+            <Input id="iptPalpite" type="Number" visible="false"/>
+            <Label id="lblValor" text="Valor"/>
+            <Input id="iptValor" type="Number"/>
+            <Label id="lblVazia"/>
+            <Button id="btnAddAposta" icon="sap-icon://add" type="Accept" press="onAddButtonPress"/>
+          </form:SimpleForm>
+          <List id="listApostas" headerText="Bilhete" items="{/apostasbilhete}" mode="Delete" delete="onDeleteAposta" sticky="HeaderToolbar">
+            <items>
+              <ObjectListItem id="aposta" intro="" title="{= ${palpite} || ${animal}}" number="R${valor}">
+                <attributes>
+                  <ObjectAttribute id="atrbMultilicador" text="{multiplicador}"/>
+                  <ObjectAttribute id="atrbJogo" text="Jogo: {jogo}"/>
+                </attributes>
+              </ObjectListItem>
+            </items>
+          </List>
+        </content>
+        <footer>
+          <Toolbar id="toolbarFooter">
+            <ToolbarSpacer id="spacer"/>
+            <Button id="btnConfirm" icon="sap-icon://accept" type="Accept" press="onConfirmPress"/>
+          </Toolbar>
+        </footer>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

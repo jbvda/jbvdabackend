@@ -1,0 +1,176 @@
+{
+    "_version": "1.21.0",
+    "sap.app": {
+        "id": "com.bicheiros.jogoDoBicho",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "dataSources": {
+            "backend": {
+                "uri": "https://jbvda.top/api/",
+                "type": "http"
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "rootView": {
+            "viewName": "com.bicheiros.jogoDoBicho.view.main",
+            "type": "XML",
+            "async": true,
+            "id": "main"
+        },
+        "dependencies": {
+            "minUI5Version": "1.60.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.bicheiros.jogoDoBicho.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "com.bicheiros.jogoDoBicho.view",
+                "controlId": "main",
+                "controlAggregation": "pages",
+                "async": true
+            },
+            "routes": [
+                {
+                    "name": "main",
+                    "pattern": "",
+                    "target": ["main"]
+                },
+                {
+                    "name": "login",
+                    "pattern": "login",
+                    "target": ["login"]
+                },
+                {
+                    "name": "venda",
+                    "pattern": "venda",
+                    "target": ["venda"]
+                },
+                {
+                    "name": "minhasVendas",
+                    "pattern": "minhasVendas",
+                    "target": ["minhasVendas"]
+                },
+                {
+                    "name": "bilhete",
+                    "pattern": "bilhete/{id}",
+                    "target": ["bilhete"]
+                },
+                {
+                    "name": "resultado",
+                    "pattern": "resultado",
+                    "target": ["resultado"]
+                },
+                {
+                    "name": "cadastrarSorteio",
+                    "pattern": "cadastrarSorteio",
+                    "target": ["cadastrarSorteio"]
+                },
+                {
+                    "name": "caixa",
+                    "pattern": "caixa",
+                    "target": ["caixa"]
+                },
+                {
+                    "name": "segundaVia",
+                    "pattern": "segundaVia",
+                    "target": ["segundaVia"]
+                },
+                {
+                    "name": "criarUsuario",
+                    "pattern": "criarUsuario",
+                    "target": ["criarUsuario"]
+                }
+            ],
+            "targets": {
+                "main": {
+                    "viewType": "XML",
+                    "viewLevel": 1,
+                    "viewName": "main"
+                },
+                "login": {
+                    "viewType": "XML",
+                    "viewName": "login"
+                },
+                "venda": {
+                    "viewType": "XML",
+                    "viewName": "venda"
+                },
+                "minhasVendas": {
+                    "viewType": "XML",
+                    "viewName": "minhasVendas"
+                },
+                "bilhete": {
+                    "viewType": "XML",
+                    "viewName": "bilhete"
+                },
+                "resultado": {
+                    "viewType": "XML",
+                    "viewName": "resultado"
+                },
+                "cadastrarSorteio": {
+                    "viewType": "XML",
+                    "viewName": "cadastrarSorteio"
+                },
+                "caixa": {
+                    "viewType": "XML",
+                    "viewName": "caixa"
+                },
+                "segundaVia": {
+                    "viewType": "XML",
+                    "viewName": "segundaVia"
+                },
+                "criarUsuario": {
+                    "viewType": "XML",
+                    "viewName": "criarUsuario"
+                }
+            }
+        }
+    }
+}

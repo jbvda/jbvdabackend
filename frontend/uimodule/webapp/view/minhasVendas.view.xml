@@ -1,0 +1,41 @@
+<mvc:View controllerName="com.bicheiros.jogoDoBicho.controller.minhasVendas" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <App id="minhasVendas">
+        <pages>
+            <Page id="page">
+                <customHeader>
+                    <Bar id="header">
+                        <contentLeft>
+                            <Button id="navBack" type="Back" press="onNavBack"/>
+                        </contentLeft>
+                        <contentMiddle>
+                            <Title id="ttlPage" text="Minhas Vendas"/>
+                        </contentMiddle>
+                        <contentRight>
+                            <Button id="btnFechar" icon="sap-icon://decline" type="Reject" press="onExitPress"/>
+                        </contentRight>
+                    </Bar>
+
+                </customHeader>
+                <content>
+                    <List id="listBilhetes" headerText="Bilhetes" items="{/bilhetes}" mode="Delete" delete="onBilheteDelete" sticky="HeaderToolbar">
+                        <items>
+                            <ObjectListItem id="bilhete" intro="{id}" title="{path: 'createdAt', formatter: '.formatter.dateTime'}" number="{path: 'apostas', formatter: '.formatter.valorTotalBilhete'}" numberUnit="R$" type="Navigation" press="onBilhetePress">
+                            </ObjectListItem>
+                        </items>
+                    </List>
+                </content>
+                <footer>
+                    <Toolbar id="bar">
+                        <content>
+                            <DatePicker id="lblDtInicio" placeholder="Data Inicio"/>
+                            <DatePicker id="lblDtFim" placeholder="Data Fim"/>
+                            <Button id="btnPesquisa" icon="sap-icon://search" type="Emphasized" press="onSearchPress"/>
+                        </content>
+                    </Toolbar>
+                </footer>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

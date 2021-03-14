@@ -53,6 +53,28 @@ class ApostaController extends DefaultController {
                 res.status(500).end();
             }
         };
+        /**
+         *
+         * @param {typeof request} req Requisição do Usuario
+         * @param {typeof response} res Resposta do Servidor
+         */
+        this.retirar = async (req, res) => {
+            let authorized = await Aposta.patchAuthCheck(req.body.auth);
+            if (!authorized) {
+                res.status(403).end();
+                return;
+            }
+            let id = req.params.id;
+
+            Aposta.findAll({ where: { id: id, ganhou: true, retirou: false } })
+                .then(async (data) => {
+                    res.send(data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    res.status(500).end();
+                });
+        };
     }
 }
 

@@ -1,0 +1,57 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="com.bicheiros.jogoDoBicho.controller.resultado" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:form="sap.ui.layout.form">
+    <App id="resultado">
+        <pages>
+            <Page id="page">
+                <customHeader>
+                    <Bar id="header">
+                        <contentLeft>
+                            <Button id="navBack" type="Back" press="onNavBack"/>
+                        </contentLeft>
+                        <contentMiddle>
+                            <Title id="ttlPage" text="Resultado"/>
+                        </contentMiddle>
+                        <contentRight>
+                            <Button id="btnFechar" icon="sap-icon://decline" type="Reject" press="onExitPress"/>
+                        </contentRight>
+                    </Bar>
+                </customHeader>
+                <content>
+                    <List id="listApostas" headerText="Apostas Vencedoras" items="{/apostas}" sticky="HeaderToolbar">
+                        <items>
+                            <CustomListItem >
+                                <ObjectListItem id="aposta" intro="" title="Id: {id}" number="{path: 'premio', formatter: '.formatter.dinheiro'}" numberUnit="R$">
+                                    <attributes>
+                                        <ObjectAttribute id="atrbAnimal" text="Animal: {animal/nome}" visible="{= ${multiplicador/id_jogo} === 1 ? true : false}"/>
+                                        <ObjectAttribute id="atrbDezena" text="Dezena: {path: 'palpite', formatter: '.formatter.dezena'}" visible="{=${multiplicador/id_jogo} === 2 ? true : false}"/>
+                                        <ObjectAttribute id="atrbCentena" text="Centena: {path: 'palpite', formatter: '.formatter.centena'}" visible="{=${multiplicador/id_jogo} === 3 ? true : false}"/>
+                                        <ObjectAttribute id="atrbValor" text="Valor da Aposta: {path: 'valor', formatter: '.formatter.dinheiro'}"/>
+                                        <ObjectAttribute id="atrbMultiplicador" text="Multiplicador: {multiplicador/valor}x. Acertos: {multiplicador/numero_acertos}"/>
+                                        <ObjectAttribute id="atrbRetirou" text="PREMIO JÁ RESGATADO" visible="{=${retirou}}"/>
+                                    </attributes>
+                                </ObjectListItem>
+                                <!-- <Toolbar id="barAposta" visible="{=!${retirou}}">
+                                    <content>
+                                        <ToolbarSpacer />
+                                        <Button id="btnRetirar" icon="sap-icon://lead" type="Accept" press="onRetirarPress"/>
+                                    </content>
+                                </Toolbar> -->
+                            </CustomListItem>
+                        </items>
+                    </List>
+                </content>
+                <footer>
+                    <Toolbar id="bar">
+                        <content>
+                            <DatePicker id="lblDtInicio" placeholder="Data Inicio"/>
+                            <DatePicker id="lblDtFim" placeholder="Data Fim"/>
+                            <Button id="btnPesquisa" icon="sap-icon://search" type="Emphasized" press="onSearchPress"/>
+                        </content>
+                    </Toolbar>
+                </footer>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

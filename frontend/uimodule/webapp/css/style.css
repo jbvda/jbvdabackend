@@ -1,0 +1,19 @@
+/* Enter your custom styles here */
+.btn-grande>.sapMBtnInner {
+    display        : flex !important;
+    justify-content: center !important;
+    align-items    : center !important;
+    font-size      : 200% !important;
+    height         : 220% !important;
+    text-align     : center !important;
+
+}
+
+.txt-grande {
+    font-size      : 200% !important;
+}
+
+.btn-grande>.sapMBtnInner.sapMBtnText .sapMBtnIcon {
+    width: 3rem;
+    font-size: 2rem;
+}

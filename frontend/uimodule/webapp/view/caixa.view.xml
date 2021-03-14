@@ -1,0 +1,45 @@
+<mvc:View controllerName="com.bicheiros.jogoDoBicho.controller.caixa" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:form="sap.ui.layout.form">
+  <App id="caixa">
+    <pages>
+      <Page id="page">
+        <customHeader>
+          <Bar id="header">
+            <contentLeft>
+              <Button id="navBack" type="Back" press="onNavBack"/>
+            </contentLeft>
+            <contentMiddle>
+              <Title id="ttlPage" text="Caixa"/>
+            </contentMiddle>
+            <contentRight>
+              <Button id="btnFechar" icon="sap-icon://decline" type="Reject" press="onExitPress"/>
+            </contentRight>
+          </Bar>
+        </customHeader>
+        <content>
+          <List id="listRegistrosFinanceiros" headerText="Entradas/Saidas" items="{/registrosfinanceiros}" sticky="HeaderToolbar">
+            <items>
+              <ObjectListItem id="registro" intro="" title="Id: {id}" number="{path: 'valor', formatter: '.formatter.dinheiro'}" numberUnit="R$" numberState="{path: 'tipo', formatter: '.formatter.entradaOuSaida'}">
+                <attributes>
+                  <ObjectAttribute id="atrbBicheiro" text="Usuário: {usuario/login}"/>
+                  <ObjectAttribute id="atrbData" text="Data: {path: 'createdAt', formatter: '.formatter.dateTime'}"/>
+                </attributes>
+              </ObjectListItem>
+            </items>
+          </List>
+        </content>
+        <footer>
+          <Toolbar id="bar">
+            <content>
+              <DatePicker id="lblDtInicio" placeholder="Data Inicio"/>
+              <DatePicker id="lblDtFim" placeholder="Data Fim"/>
+              <Button id="btnPesquisa" icon="sap-icon://search" type="Emphasized" press="onSearchPress"/>
+            </content>
+          </Toolbar>
+        </footer>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

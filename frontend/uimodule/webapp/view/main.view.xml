@@ -1,0 +1,46 @@
+<mvc:View controllerName="com.bicheiros.jogoDoBicho.controller.main" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <App id="main">
+        <pages>
+            <Page id="page">
+                <customHeader>
+                    <Bar id="header">
+                        <contentLeft>
+                            <Title id="titulo" text="🐵" class="txt-grande"/>
+                        </contentLeft>
+                        <contentMiddle>
+                            <Title id="ttlPage" text="JB Vale do Aço"/>
+                        </contentMiddle>
+                        <contentRight>
+                            <Button id="btnFechar" icon="sap-icon://decline" type="Reject" press="onExitPress"/>
+                        </contentRight>
+                    </Bar>
+                </customHeader>
+                <content>
+                    <ScrollContainer id="container" class="sapUiContentPadding">
+                        <Button id="btnVenda" icon="sap-icon://simple-payment" text="Nova Venda" class="btn-grande sapUiMediumMarginBottom" press="onVendaPress" width="100%" type="Accept"/>
+                        <Button id="btnResultado" icon="sap-icon://bar-chart" text="Resultado" class="btn-grande sapUiSmallMarginTop sapUiMediumMarginBottom" press="onResultadoPress" width="100%" type="Default"/>
+                        <Button id="btnBilhete" icon="sap-icon://receipt" text="2ª Via Bilhete" class="btn-grande sapUiSmallMarginTop sapUiMediumMarginBottom" width="100%" type="Default" press="onSegundaViaPress"/>
+                        <!-- <Button id="btnPerfil" icon="sap-icon://person-placeholder" text="Meu Perfil" class="btn-grande sapUiSmallMarginTop sapUiMediumMarginBottom" width="100%" type="Default"/> -->
+                        <Button id="btnMinhasVendas" icon="sap-icon://my-sales-order" text="Minhas Vendas" class="btn-grande sapUiSmallMarginTop sapUiMediumMarginBottom" press="onMinhasVendasPress" width="100%" type="Default"/>
+                        <!-- Administração -->
+                        <Button id="btnCadastrarSorteio" icon="sap-icon://write-new-document" text="Cadastrar Sorteio" class="btn-grande sapUiSmallMarginTop sapUiMediumMarginBottom" press="onCadastrarSorteioPress" width="100%" type="Default" visible="{= ${/usuario/nivel_acesso} >= 2}"/>
+                        <Button id="btnCaixa" icon="sap-icon://lead" text="Caixa" class="btn-grande sapUiSmallMarginTop sapUiMediumMarginBottom" width="100%" press="onCaixaPress" type="Default" visible="{= ${/usuario/nivel_acesso} >= 2}"/>
+                        <Button id="btnUsuarios" icon="sap-icon://user-settings" text="Usuários" class="btn-grande sapUiSmallMarginTop sapUiMediumMarginBottom" width="100%" press="onUsuariosPress" type="Default" visible="{= ${/usuario/nivel_acesso} >= 2}"/>
+                    </ScrollContainer>
+                </content>
+                <footer>
+                    <Bar id="footer">
+                        <contentMiddle>
+                            <Title id="ttlUsuario" text="{/usuario/login}"/>
+                        </contentMiddle>
+                        <contentRight>
+                            <!-- <Button id="btnConfiguracoes" icon="sap-icon://action-settings" type="Default" press="onConfigPress"/> -->
+                        </contentRight>
+                    </Bar>
+                </footer>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

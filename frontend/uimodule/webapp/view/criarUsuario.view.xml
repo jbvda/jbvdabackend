@@ -1,0 +1,43 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="com.bicheiros.jogoDoBicho.controller.criarUsuario" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:form="sap.ui.layout.form">
+  <App id="criarUsuario">
+    <pages>
+      <Page id="page">
+        <customHeader>
+          <Bar id="header">
+            <contentLeft>
+              <Button id="navBack" type="Back" press="onNavBack"/>
+            </contentLeft>
+            <contentMiddle>
+              <Title id="ttlPage" text="Criar Usuário"/>
+            </contentMiddle>
+            <contentRight>
+              <Button id="btnFechar" icon="sap-icon://decline" type="Reject" press="onExitPress"/>
+            </contentRight>
+          </Bar>
+        </customHeader>
+        <content>
+          <form:SimpleForm id="usuarioForm" editable="true" layout="ResponsiveGridLayout" title="Usuário">
+            <Label id="lblNome" text="Nome" />
+            <Input id="iptNome" type="Text" />
+            <Label id="lblLogin" text="Login" />
+            <Input id="iptLogin" type="Text" />
+            <Label id="lblSenha" text="Senha" />
+            <Input id="iptSenha" type="Password" />
+            <Label id="lblNivelAcesso" text="Nivel de Acesso" />
+            <ComboBox id="comboBoxNivelAcesso" selectedKey="1">
+              <items>
+                <core:ListItem id="nvlAcessoPadrao" key="1" text="Padrão"></core:ListItem>
+                <core:ListItem id="nvlAcessoAdm" key="2" text="Administração"></core:ListItem>
+              </items>
+            </ComboBox>
+            <Label id="lblVazia"/>
+            <Button id="btnAddSorteio" icon="sap-icon://add" type="Accept" press="onAddButtonPress"/>
+          </form:SimpleForm>
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

@@ -1,0 +1,32 @@
+<mvc:View controllerName="com.bicheiros.jogoDoBicho.controller.segundaVia" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:form="sap.ui.layout.form">
+  <App id="segundaVia">
+    <pages>
+      <Page id="page">
+        <customHeader>
+          <Bar id="header">
+            <contentLeft>
+              <Button id="navBack" type="Back" press="onNavBack"/>
+            </contentLeft>
+            <contentMiddle>
+              <Title id="ttlPage" text="Segunda Via Bilhete"/>
+            </contentMiddle>
+            <contentRight>
+              <Button id="btnFechar" icon="sap-icon://decline" type="Reject" press="onExitPress"/>
+            </contentRight>
+          </Bar>
+        </customHeader>
+        <content>
+          <form:SimpleForm id="sorteioForm" editable="true" layout="ResponsiveGridLayout" title="Buscar Bilhete">
+            <Label id="lblId" text="Id do Bilhete" />
+            <Input id="iptId" type="Number" />
+            <Label id="lblVazia"/>
+            <Button id="btnSeachBilhete" icon="sap-icon://search" press="onSearchPress"/>
+          </form:SimpleForm>
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

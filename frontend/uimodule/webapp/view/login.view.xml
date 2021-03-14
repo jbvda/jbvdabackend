@@ -1,0 +1,32 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="com.bicheiros.jogoDoBicho.controller.login" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <App id="login">
+    <pages>
+      <Page id="page">
+        <customHeader>
+          <Bar id="header">
+            <contentLeft>
+              <Title id="titulo" text="🐵" class="txt-grande"/>
+            </contentLeft>
+            <contentMiddle>
+              <Title id="ttlPage" text="Login"/>
+            </contentMiddle>
+          </Bar>
+        </customHeader>
+        <ScrollContainer id="container">
+          <form:SimpleForm id="formLogin" editable="true" layout="ResponsiveGridLayout" title="Login">
+            <form:content>
+              <Label id="lblUsuario" text="Usuário"/>
+              <Input id="iptUsuario" required="true"/>
+              <Label id="lblSenha" text="Senha"/>
+              <Input id="iptSenha" type="Password" required="true"/>
+              <Label id="lblEspaco"/>
+              <Button id="btnSubmit" icon="sap-icon://accept" type="Accept" press="onSubmitPress"/>
+            </form:content>
+          </form:SimpleForm>
+        </ScrollContainer>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>
